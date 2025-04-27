@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Compiler Tutor</title>
+  <link rel="stylesheet" href="up_style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <select id="language-select">
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="cpp">C++</option>
+      <option value="java">Java</option>
+    </select>
+    <button id="next-question">Next Ques</button>
+  </div>
+
+  <!-- Main Section -->
+  <div class="main-section">
+    <div id="editor-container"></div>
+
+    <div id="output-container">
+      <h3>Output</h3>
+      <div id="output">Your output will appear here...</div>
+      <div id="feedback" style="display: none;">
+        <h3>AI Feedback</h3>
+        <div id="mistakes"></div>
+        <div id="strengths"></div>
+        <div id="learning-path"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button id="run-code">Run Code</button>
+    <button id="submit-code">Submit</button>
+  </div>
+
+  <!-- Footer Buttons -->
+  <div class="footer-buttons">
+    <button id="save-draft">Save Draft</button>
+    <button id="view-progress">View Progress</button>
+    <button id="take-quiz">Take Quiz Challenge</button>
+  </div>
+
+<script src="up_script.js"></script>
+</body>
+</html>

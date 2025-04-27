@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="lang_sel">
+        <label for="lang">Select your language</label>
+        <select name="lang" id="lang">
+            <option value="python">Python</option>
+            <option value="c">C</option>
+            <option value="cpp">CPP</option>
+            <option value="java">Java</option>
+            <option value="js">JS</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <div id="codespace"></div> 
+        <div id="output-window">
+            <!--<pre id="output-text">Waiting for code execution...</pre>-->
+        </div>
+        <span class="buttons">
+            <button id="submit-butt" onclick="submit()">Submit</button>
+            <button id="run-butt" onclick="run()">Run</button>
+        </span>
+        <div id="feedback-window">
+            <!--<p id="feedback-text">Waiting for code analysis...</p>-->
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@latest/min/vs/loader.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
