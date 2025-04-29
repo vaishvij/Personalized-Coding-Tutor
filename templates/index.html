@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editor</title>
+  <style>
+    #editor { height: 400px; width: 100%; }
+    #output { background: #f1f1f1; padding: 10px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h3 id="title"></h3>
+  <p id="desc"></p>
+
+  <div id="editor"></div>
+  <button onclick="runCode()">Run Code</button>
+  <h4>Output:</h4>
+  <div id="output"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs/loader.js"></script>
+  <script>
+    let editor;
+    const qid = new URLSearchParams(window.location.search).get('qid');
+
+    fetch('/questions/' + qid)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('desc').innerText = data.description;
+      });
+
+    require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+      editor = monaco.editor.create(document.getElementById('editor'), {
+        value: "# Write your Python code here\n",
+        language: 'python',
+        theme: 'vs-dark',
+      });
+    });
+
+    function runCode() {
+      const code = editor.getValue();
+      fetch('/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('output').innerText = data.output || data.error;
+      });
+    }
+  </script>
+</body>
+</html>

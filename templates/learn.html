@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learn Page</title>
+</head>
+<body>
+  <h2>Practice Problems</h2>
+  <div id="list"></div>
+
+  <script>
+    fetch('/questions')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(q => {
+          const div = document.createElement('div');
+          div.innerHTML = `<h4>${q.title}</h4><p>${q.description}</p>`;
+          div.style = 'border: 1px solid #ccc; padding: 10px; margin: 10px; cursor:pointer;';
+          div.onclick = () => {
+            window.open(`/editor?qid=${q.id}`, '_blank');
+          };
+          document.getElementById('list').appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>

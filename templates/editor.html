@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>AI Compiler Tutor</title>
-  <link rel="stylesheet" href="up_style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"></script>
 </head>
 <body>
@@ -37,8 +37,8 @@
 
   <!-- Action Buttons -->
   <div class="action-buttons">
-    <button id="run-code">Run Code</button>
-    <button id="submit-code">Submit</button>
+    <button id="run-code" onclick="run()">Run Code</button>
+    <button id="submit-code" onclick="submit()">Submit</button>
   </div>
 
   <!-- Footer Buttons -->
@@ -48,6 +48,7 @@
     <button id="take-quiz">Take Quiz Challenge</button>
   </div>
 
-<script src="up_script.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>

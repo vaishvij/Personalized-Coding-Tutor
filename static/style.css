@@ -20,7 +20,8 @@ body {
   
   #editor-container {
     width: 50%;
-    height: 500px;
+    height: 500px;         
+    min-height: 300px;
     border: 1px solid #555;
     background: #1e1e1e;
   }

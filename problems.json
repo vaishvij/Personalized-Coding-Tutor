@@ -1,0 +1,12 @@
+[
+    {
+      "id": "q1",
+      "title": "Sum of Two Numbers",
+      "description": "Write a program that takes two integers and prints their sum.",
+      "input_format": "Two space-separated integers",
+      "output_format": "Single integer (their sum)",
+      "sample_input": "4 5",
+      "sample_output": "9"
+    }
+  ]
+  
